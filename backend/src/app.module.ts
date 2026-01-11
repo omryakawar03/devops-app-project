@@ -17,9 +17,7 @@ import { Users } from './modules/users/users.entity';
   database: process.env.DB_NAME,
   entities: [Users],
   synchronize: true,
-  ssl: {
-    rejectUnauthorized: false
-  }
+
 }),],
 
 })
