@@ -9,14 +9,14 @@ RUN npm install
 COPY . .
 
 RUN npm run build
-RUN npm run export
 
-# 2) Nginx step
-FROM nginx:stable-alpine
+# 2) Production step
+FROM node:20-alpine
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
-COPY --from=builder /app/out /usr/share/nginx/html
+COPY --from=builder /app ./
 
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
+
+CMD ["npm", "run", "start"]
