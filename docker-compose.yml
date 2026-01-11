@@ -6,12 +6,12 @@ services:
     container_name: mysql_db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpass123
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: devops_app
       MYSQL_USER: appuser
       MYSQL_PASSWORD: apppass123
     ports:
-      - "3307:3306"
+      - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
 
@@ -26,7 +26,7 @@ services:
       DB_USER: appuser
       DB_PASS: apppass123
       DB_NAME: devops_app
-      JWT_SECRET: changeme123
+      JWT_SECRET: "eeb3284e501ce402bf0cb6f183fc423cc95fd6e3f6f7b4161fd70d7ff57be483"
     depends_on:
       - db
     ports:
